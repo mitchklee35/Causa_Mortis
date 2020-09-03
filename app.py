@@ -57,7 +57,7 @@ def causaMortis():
 @app.route("/")
 def welcome():
     return(
-        f"Abandon hope, all ye who enter this API<br/"
+        f"Abandon hope, all ye who enter this API<br/>"
         f"Available Routes:<br/>"
         f"/api/v1.0/causa-mortis"
     )
