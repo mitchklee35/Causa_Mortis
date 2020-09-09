@@ -4,7 +4,7 @@ from pandas.io.json import json_normalize
 from flask import Flask, jsonify
 import os
 
-filepath = os.path.join("resources", "cause_of_death.json")
+filepath = os.path.join("../data/cause_of_death.json")
 with open(filepath) as jsonfile:
     CODjson = json.load(jsonfile)
 
