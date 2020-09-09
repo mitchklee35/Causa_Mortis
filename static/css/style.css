@@ -46,9 +46,24 @@ h1 {
   text-align: center;
 }
 .navbar{
-  max-height: none; 
+  max-height: 60px; 
   padding: inherit;
+  background-color:#242424;
 }
 body{
-  background-color: #EDEDED; 
+  background-color: #424242; 
 }
+#navbarDropdownMenuLink{
+ color:white
+}
+
+.navigation .navbar-brand{
+  color: White; 
+  margin-left: 30px; 
+  padding: 10px; 
+  font-weight: bold; 
+  background-color: #ac1111;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:hover{
+  background-color:#E7E7E7; 
