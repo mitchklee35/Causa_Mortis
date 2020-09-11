@@ -1,10 +1,10 @@
 import pandas as pd
 import json as json
 from pandas.io.json import json_normalize
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
 import os
 
-filepath = os.path.join("../data/cause_of_death.json")
+filepath = os.path.join("static/data/cause_of_death.json")
 with open(filepath) as jsonfile:
     CODjson = json.load(jsonfile)
 
@@ -53,6 +53,13 @@ def causaMortis():
     """Return the CoD data as json"""
 
     return jsonify(codDict)
+
+    
+@app.route("/bubble")
+def bubble():
+    """Return the CoD data as json"""
+
+    return render_template("bubble.html")
 
 @app.route("/")
 def welcome():
