@@ -35,13 +35,22 @@ CODall_df = pd.DataFrame({"sid":sid,
                             "deaths": deaths,
                             "Age-adjusted Death Rate": Age_Adj_DR,})
 
+
+
+
 CODfilt = pd.DataFrame({"year":year,
                         # "113 Cause Name": exp_cause_name,
-                        "Cause Name": cause_name,
+                        "cause_name": cause_name,
                         "state": state,
                         "deaths": deaths,
-                        # "Age-adjusted Death Rate": Age_Adj_DR,
+                        "adj_dr": Age_Adj_DR,
                         })
+
+#added to filter-out "US total" data
+noUSdata = CODfilt[CODfilt['state'] == 'United States'].index
+CODfilt.drop(noUSdata , inplace=True)
+no_allcause = CODfilt[CODfilt['cause_name'] == 'All causes'].index
+CODfilt.drop(no_allcause , inplace=True)
 
 #'list' removes indexing. Remove 'list' to add indexing
 codDict = CODfilt.to_dict('list')
