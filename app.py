@@ -49,6 +49,8 @@ CODfilt = pd.DataFrame({"year":year,
 #added to filter-out "US total" data
 noUSdata = CODfilt[CODfilt['state'] == 'United States'].index
 CODfilt.drop(noUSdata , inplace=True)
+no_allcause = CODfilt[CODfilt['cause_name'] == 'All causes'].index
+CODfilt.drop(no_allcause , inplace=True)
 
 #'list' removes indexing. Remove 'list' to add indexing
 codDict = CODfilt.to_dict('list')

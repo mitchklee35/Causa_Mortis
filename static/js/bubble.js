@@ -35,6 +35,7 @@ d3.json('http://127.0.0.1:5000/api/v1.0/causa-mortis').then(function (data) {
         return trace;
     }
     console.log(data)
+
     // Go through each row, get the right trace, and append the data:
     for (var i = 0; i < data.year.length; i++) {
         var year = data.year[i]
@@ -47,7 +48,7 @@ d3.json('http://127.0.0.1:5000/api/v1.0/causa-mortis').then(function (data) {
         trace.id.push(state);
         trace.x.push(adj_dr);
         trace.y.push(deaths);
-        trace.marker.size.push(deaths*500);
+        trace.marker.size.push(deaths * 3000);
     }
 
     // Get the group names:
@@ -76,7 +77,8 @@ d3.json('http://127.0.0.1:5000/api/v1.0/causa-mortis').then(function (data) {
             marker: {
                 size: data.marker.size.slice(),
                 sizemode: 'area',
-                sizeref: 200000
+                sizeref: 100000,
+                color: 'plasma'
             }
         });
     }
@@ -114,8 +116,8 @@ d3.json('http://127.0.0.1:5000/api/v1.0/causa-mortis').then(function (data) {
 
     var layout = {
         xaxis: {
-            title: 'Age Adjusted Death Rate',
-            range: [30, 85]
+            title: 'Age Adjusted Death Rate per 100k population',
+            range: [0, 350]
         },
         yaxis: {
             title: 'Number of Deaths',
