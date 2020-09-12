@@ -78,7 +78,7 @@ d3.json('http://127.0.0.1:5000/api/v1.0/causa-mortis').then(function (data) {
                 size: data.marker.size.slice(),
                 sizemode: 'area',
                 sizeref: 100000,
-                color: 'plasma'
+                color: 'Blackbody'
             }
         });
     }
