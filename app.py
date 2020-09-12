@@ -37,10 +37,10 @@ CODall_df = pd.DataFrame({"sid":sid,
 
 CODfilt = pd.DataFrame({"year":year,
                         # "113 Cause Name": exp_cause_name,
-                        "Cause Name": cause_name,
+                        "cause_name": cause_name,
                         "state": state,
                         "deaths": deaths,
-                        # "Age-adjusted Death Rate": Age_Adj_DR,
+                        "adj_dr": Age_Adj_DR,
                         })
 
 #'list' removes indexing. Remove 'list' to add indexing
