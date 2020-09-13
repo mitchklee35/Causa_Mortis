@@ -1,6 +1,7 @@
 #map,
 body,
-html {
+html,
+#sankey {
   height: 100%;
 }
 

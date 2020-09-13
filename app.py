@@ -46,6 +46,13 @@ CODfilt = pd.DataFrame({"year":year,
 #'list' removes indexing. Remove 'list' to add indexing
 codDict = CODfilt.to_dict('list')
 
+sankey_df = pd.DataFrame({"year": year,
+                            "Cause Name": cause_name,
+                            "deaths": deaths,
+                            "state": state
+                            })
+sankey_df=sankey_df[state=="United States"]
+sankeyDict = sankey_df.to_dict('list')
 app = Flask(__name__)
 
 @app.route("/api/v1.0/causa-mortis")
@@ -54,7 +61,18 @@ def causaMortis():
 
     return jsonify(codDict)
 
-    
+@app.route("/api/v1.0/sankey")
+def sankeyJson():
+    """Return the CoD data as json"""
+
+    return jsonify(sankeyDict)
+
+@app.route("/sankey")
+def sankey():
+    """Return the CoD data as json"""
+
+    return render_template("sankey.html")  
+
 @app.route("/bubble")
 def bubble():
     """Return the CoD data as json"""
