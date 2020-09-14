@@ -74,4 +74,5 @@ body{
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 .dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:hover{
-  background-color:#E7E7E7; 
+  background-color:#E7E7E7;
+} 
