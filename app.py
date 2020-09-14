@@ -93,7 +93,12 @@ def welcome():
     return(
         f"Abandon hope, all ye who enter this API<br/>"
         f"Available Routes:<br/>"
-        f"/api/v1.0/causa-mortis"
+        f"Original JSON: /api/v1.0/causa-mortis<br/>"
+        f"Animated Bubble Chart: /bubble<br/>"
+        f"Sankey Chart: /sankey<br/>"
+        f"Sankey JSON: /api/v1.0/sankey<br/>"
+        f"Choropleth: BLANK <br/>"
+
     )
 if __name__ == "__main__":
     app.run(debug=True)
