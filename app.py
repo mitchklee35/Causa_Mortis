@@ -23,22 +23,20 @@ state = COD_df[11]
 deaths = COD_df[12]
 Age_Adj_DR = COD_df[13]
 
-CODall_df = pd.DataFrame({"sid":sid,
-                            "id":cod_id,
-                            "position":position,
-                            "created_at":created_at,
-                            "updated_at":updated_at,
-                            "year":year,
-                            "113 Cause Name": exp_cause_name,
-                            "Cause Name": cause_name,
-                            "state": state,
-                            "deaths": deaths,
-                            "Age-adjusted Death Rate": Age_Adj_DR,})
+CODall_df = pd.DataFrame({"sid": sid,
+                          "id": cod_id,
+                          "position": position,
+                          "created_at": created_at,
+                          "updated_at": updated_at,
+                          "year": year,
+                          "113 Cause Name": exp_cause_name,
+                          "Cause Name": cause_name,
+                          "state": state,
+                          "deaths": deaths,
+                          "Age-adjusted Death Rate": Age_Adj_DR, })
 
 
-
-
-CODfilt = pd.DataFrame({"year":year,
+CODfilt = pd.DataFrame({"year": year,
                         # "113 Cause Name": exp_cause_name,
                         "cause_name": cause_name,
                         "state": state,
@@ -46,23 +44,24 @@ CODfilt = pd.DataFrame({"year":year,
                         "adj_dr": Age_Adj_DR,
                         })
 
-#added to filter-out "US total" data
+# added to filter-out "US total" data
 noUSdata = CODfilt[CODfilt['state'] == 'United States'].index
-CODfilt.drop(noUSdata , inplace=True)
+CODfilt.drop(noUSdata, inplace=True)
 no_allcause = CODfilt[CODfilt['cause_name'] == 'All causes'].index
-CODfilt.drop(no_allcause , inplace=True)
+CODfilt.drop(no_allcause, inplace=True)
 
-#'list' removes indexing. Remove 'list' to add indexing
+# 'list' removes indexing. Remove 'list' to add indexing
 codDict = CODfilt.to_dict('list')
 
 sankey_df = pd.DataFrame({"year": year,
-                            "Cause Name": cause_name,
-                            "deaths": deaths,
-                            "state": state
-                            })
-sankey_df=sankey_df[state=="United States"]
+                          "Cause Name": cause_name,
+                          "deaths": deaths,
+                          "state": state
+                          })
+sankey_df = sankey_df[state == "United States"]
 sankeyDict = sankey_df.to_dict('list')
 app = Flask(__name__)
+
 
 @app.route("/api/v1.0/causa-mortis")
 def causaMortis():
@@ -70,23 +69,34 @@ def causaMortis():
 
     return jsonify(codDict)
 
+
 @app.route("/api/v1.0/sankey")
 def sankeyJson():
     """Return the CoD data as json"""
 
     return jsonify(sankeyDict)
 
+
 @app.route("/sankey")
 def sankey():
     """Return the CoD data as json"""
 
-    return render_template("sankey.html")  
+    return render_template("sankey.html")
+
 
 @app.route("/bubble")
 def bubble():
     """Return the CoD data as json"""
 
     return render_template("bubble.html")
+
+
+@app.route("/choropleth")
+def choropleth():
+    """Return the CoD data as json"""
+
+    return render_template("choropleth.html")
+
 
 @app.route("/")
 def welcome():
@@ -97,10 +107,12 @@ def welcome():
         f"Animated Bubble Chart: /bubble<br/>"
         f"Sankey Chart: /sankey<br/>"
         f"Sankey JSON: /api/v1.0/sankey<br/>"
-        f"Choropleth: BLANK <br/>"
+        f"Choropleth: /choropleth<br/>"
 
     )
+
+
 if __name__ == "__main__":
     app.run(debug=True)
 
-#Ends
+# Ends
