@@ -1,4 +1,6 @@
-function buildplot() {
+// function autorangeChart() {
+    sankey_chart.container("bubble");
+
     // console.log("hello world again")
     d3.json('http://127.0.0.1:5000/api/v1.0/causa-mortis').then(function (data) {
         // Log data to view
@@ -108,11 +110,12 @@ function buildplot() {
         var layout = {
             xaxis: {
                 title: 'Age Adjusted Death Rate per 100k population',
-                range: [0, 350]
+                autorange: true,
             },
             yaxis: {
                 title: 'Number of Deaths',
-                type: 'log'
+                type: 'log',
+                autorange: true,
             },
             hovermode: 'closest',
             // We'll use updatemenus (whose functionality includes menus as
@@ -171,10 +174,3 @@ function buildplot() {
             frames: frames,
         });
     });
-};
-
-buildplot();
-
-// Event listener for window resize.
-// When the browser window is resized, makeResponsive() is called.
-d3.select(window).on("resize", buildplot);

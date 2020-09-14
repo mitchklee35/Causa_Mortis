@@ -15,8 +15,6 @@
         crossorigin=""></script>
     <!-- d3 JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.js"></script>
-    <script src="https://cdn.anychart.com/releases/v8/js/anychart-core.min.js"></script>
-    <script src="https://cdn.anychart.com/releases/v8/js/anychart-sankey.min.js"></script>
     <!-- Our Stylesheet-->
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
 </head>
@@ -38,8 +36,8 @@
                             Causes of Death in the US
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="index">US Map</a>
-                            <a class="dropdown-item active" href="sankey">Sankey Diagrams</a>
+                            <a class="dropdown-item active" href="choropleth">US Map</a>
+                            <a class="dropdown-item" href="sankey">Sankey Diagrams</a>
                             <a class="dropdown-item" href="bubble">Bubble Diagrams</a>
                         </div>
                     </li>
@@ -47,11 +45,12 @@
             </div>
         </nav>
     </div>
-    <div id="sankey"></div>
+    <div id="map"></div>
 
     <footer class="text-center text-light border-top border-danger fixed-bottom">
-        <div class="footer">&copy; Copyright Coding Bootcamp 2020</div>
+
     </footer>
+
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
@@ -62,10 +61,15 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <!-- Leaflet-Choropleth JavaScript -->
-    <script type="text/javascript" src="static/js/choropleth.js"></script>
-    <script type="text/javascript" src="static/js/sankey.js"></script>
+    <script type="text/javascript" src="choropleth/choropleth.js"></script>
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="choropleth/style.css">
+    <script type="text/javascript" src="choropleth/config.js"></script>
+    <script type="text/javascript" src="choropleth/logic.js"></script>
+    <script type="text/javascript" src="static/js/app.js"></script>
     <script type="text/javascript" src="static/js/bubble.js"></script>
-
+    <script type="text/javascript" src="static/js/sankey.js"></script>
 </body>
+
 
 </html>
