@@ -97,6 +97,12 @@ def choropleth():
 
     return render_template("index.html")
 
+@app.route("/coxcomb")
+def coxcomb():
+    """Return the CoD data as json"""
+
+    return render_template("coxcomb.html")
+
 
 @app.route("/")
 def welcome():
@@ -108,6 +114,8 @@ def welcome():
         f"Sankey Chart: /sankey<br/>"
         f"Sankey JSON: /api/v1.0/sankey<br/>"
         f"Choropleth: /choropleth<br/>"
+        f"Coxcomb: /coxcomb<br/>"
+
 
     )
 
