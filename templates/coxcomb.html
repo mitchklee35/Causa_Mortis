@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>US: Leading Causes of Death</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="coxcomb.js"></script>
+  <script src="https://raw.githack.com/jamesleesaunders/d3-ez/master/dist/d3-ez.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://rawgit.com/jamesleesaunders/d3.ez/master/dist/d3-ez.css"/>
+</head>
+
+<body>
+    <div id="year">
+        YearPlaceholder
+          </div>
+  <div id="chartholder"></div>
+  <br/>
+  <div>Number of deaths: <span id="message"></span></div>
+
+  <script type="text/javascript">
+   var data1 = data1
+    // Generate some data
+    function randomDataset() {
+      var _randomNum = function() {
+        return Math.floor(Math.random() * 18);
+      };
+     var newData = data1[Math.floor(Math.random() * 18)]
+      console.log(newData)
+
+      var year = `Year: ${newData["year"]}`
+      console.log(year)
+      d3.select('#year').text(year)
+
+      return newData;
+    }
+
+    var chart = d3.ez.chart.polarAreaChart().colors(d3.ez.palette.diverging(2));
+    var legend = d3.ez.component.legend().title('Top 10');
+    var title = d3.ez.component.title().mainText("NCHS - Leading Causes of Death: United States").subText("Years: 1999-2017");
+
+    // Create chart base
+    var myChart = d3.ez.base()
+      .width(1000)
+      .height(650)
+      .chart(chart)
+      .legend(legend)
+      .title(title)
+      .on("customValueMouseOver", function(d, i) {
+        d3.select("#message").text(d.value);
+      });
+
+    // Add to page
+    function update() {
+      var data = randomDataset();
+      d3.select("#chartholder")
+        .datum(data)
+        .call(myChart);
+    }
+
+    update();
+    setInterval(update, 3000);
+
+  </script>
+</body>
+
+</html>
