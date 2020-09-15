@@ -12,7 +12,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 
 // // import my geojason data 
 (async function(){
-    const data = await d3.json("choropleth/data.geojson");
+    const data = await d3.json("data/data.geojson");
     // Once we get a response, send the data.features object to the createFeatures function
     L.geoJson(data).addTo(map);
 
@@ -120,7 +120,7 @@ var legend = L.control({position: 'bottomright'});
 
 legend.onAdd = function (map) {
 
-    var div = L.DomUtil.create('div', 'info legend'),
+    var div = L.DomUtil.create('div', 'info legend1'),
         grades = [8000000, 7000000, 6000000, 5000000, 4000000, 3000000, 2000000, 1000000],
 
        

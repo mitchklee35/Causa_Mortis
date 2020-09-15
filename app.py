@@ -91,7 +91,7 @@ def bubble():
     return render_template("bubble.html")
 
 
-@app.route("/choropleth")
+@app.route("/index")
 def choropleth():
     """Return the CoD data as json"""
 
