@@ -17,7 +17,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     // L.geoJson(data).addTo(map);
 
 
-    d3.json("http://127.0.0.1:5000/static/data/data.geojson")
+    d3.json("/static/data/data.geojson")
         .then(function (data) {
             L.geoJson(data).addTo(map);
             console.log(data)
