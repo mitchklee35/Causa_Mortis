@@ -97,27 +97,33 @@ def choropleth():
 
     return render_template("index.html")
 
+
 @app.route("/coxcomb")
 def coxcomb():
     """Return the CoD data as json"""
 
     return render_template("coxcomb.html")
 
+@app.route("/about")
+def about():
+    """Return the CoD data as json"""
+
+    return render_template("about.html")
+
 
 @app.route("/")
 def welcome():
-    return(
-        f"Abandon hope, all ye who enter this API<br/>"
-        f"Available Routes:<br/>"
-        f"Original JSON: /api/v1.0/causa-mortis<br/>"
-        f"Animated Bubble Chart: /bubble<br/>"
-        f"Sankey Chart: /sankey<br/>"
-        f"Sankey JSON: /api/v1.0/sankey<br/>"
-        f"Choropleth: /choropleth<br/>"
-        f"Coxcomb: /coxcomb<br/>"
+    # return(
+    #     f"Abandon hope, all ye who enter this API<br/>"
+    #     f"Available Routes:<br/>"
+    #     f"Original JSON: /api/v1.0/causa-mortis<br/>"
+    #     f"Animated Bubble Chart: /bubble<br/>"
+    #     f"Sankey Chart: /sankey<br/>"
+    #     f"Sankey JSON: /api/v1.0/sankey<br/>"
+    #     f"Choropleth: /choropleth<br/>"
+    #     f"Coxcomb: /coxcomb<br/>"
 
-
-    )
+    return render_template("home.html")
 
 
 if __name__ == "__main__":
