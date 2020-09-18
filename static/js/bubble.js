@@ -2,7 +2,7 @@
     // sankey_chart.container("bubble");
 
     // console.log("hello world again")
-    d3.json('http://127.0.0.1:5000/api/v1.0/causa-mortis').then(function (data) {
+    d3.json('/api/v1.0/causa-mortis').then(function (data) {
         // Log data to view
         console.log(data)
         // Create a lookup table to sort and regroup the columns of data,

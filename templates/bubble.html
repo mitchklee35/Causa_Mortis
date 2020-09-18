@@ -24,7 +24,7 @@
 <body>
     <div class="navigation">
         <nav class="navbar navbar-expand-lg navbar-dark text-light">
-            <a class="navbar-brand rounded" style="background-color: #ac1111;" href="index.html">Causa Mortis</a>
+            <a class="navbar-brand rounded" style="background-color: #ac1111;" href="/">Causa Mortis</a>
             <button class="navbar-toggler border border-white" type="button" data-toggle="collapse"
                 data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -37,9 +37,11 @@
                             aria-haspopup="true" aria-expanded="false">
                             Causes of Death in the US</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="index">US Map</a>
+                            <a class="dropdown-item" href="coxcomb">Coxcomp Diagram</a>
                             <a class="dropdown-item" href="sankey">Sankey Diagrams</a>
                             <a class="dropdown-item active" href="bubble">Bubble Diagrams</a>
+                            <a class="dropdown-item" href="choropleth">Choropleth</a>
+                            <a class="dropdown-item" href="about">About the Team</a>
                         </div>
                     </li>
                 </ul>
@@ -50,9 +52,17 @@
     <div class="chart">
         <div id="bubble"></div>
     </div>
+    <h2 class = "text-white">Bubble Diagram:</h2>
+        <p class="text-danger">This chart shows the evolution and growth of deaths over time from each state, grouped by the cause of death. The reason this chart is helpful is that you can group for different types of deaths, and along with that you can see how there has been an increase or decrease of that cause over time. Since 1999, the ADR has significantly lowered for Cancer as well as heart disease, showing the overall
+        life expectancy to grow over the years and equalize across causes.</p>
+    <h3 class = "text-white">Age Adjusted Death Rate:</h3>
+        <p class="text-danger">This is a statistical tool to help even out the rate at which certain ages die. This normalizes the data so that you get a tool that shows 
+        the average death rate of a population of 100k normalized by age. When you see the ADR lowering, that just means there are fewer overall deaths per 100k people.
+        </p>
 
-    <footer class="text-center text-light border-top border-danger fixed-bottom">
-        <div class="footer">&copy; Copyright Coding Bootcamp 2020</div>
+    
+    <footer class="text-center text-light border-top border-danger">
+        <div class="footer">&copy; Copyright Causa Mortis 2020</div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
@@ -64,7 +74,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <!-- Leaflet-Choropleth JavaScript -->
-    <script type="text/javascript" src="static/js/choropleth.js"></script>
+    <script type="text/javascript" src="static/js/coxcomb.js"></script>
     <script type="text/javascript" src="static/js/sankey.js"></script>
     <script type="text/javascript" src="static/js/bubble.js"></script>
 </body>

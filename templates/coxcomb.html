@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Causa Mortis</title>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="../static/js/coxcomb.js"></script>
+  <script src="https://raw.githack.com/jamesleesaunders/d3-ez/master/dist/d3-ez.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://rawgit.com/jamesleesaunders/d3.ez/master/dist/d3-ez.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+      integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+      crossorigin="" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+      integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+      crossorigin=""></script>
+  <!-- d3 JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.js"></script>
+  <!-- Our Stylesheet-->
+  <link rel="stylesheet" type="text/css" href="static/css/style.css">
+</head>
+
+<body>
+
+
+
+  <div class="navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark text-light">
+        <a class="navbar-brand rounded" style="background-color: #ac1111;" href="/">Causa Mortis</a>
+        <button class="navbar-toggler border border-white" type="button" data-toggle="collapse"
+            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Causes of Death in the US
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item active" href="coxcomb">Coxcomp Diagram</a>
+                        <a class="dropdown-item" href="sankey">Sankey Diagrams</a>
+                        <a class="dropdown-item" href="bubble">Bubble Diagrams</a>
+                        <a class="dropdown-item" href="choropleth">Choropleth</a>
+                        <a class="dropdown-item" href="about">About the Team</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+  </div>
+  <div>Number of deaths: <span id="message"></span></div>
+  <div id="year">
+    YearPlaceholder
+      </div>
+<div id="chartholder"></div>
+  <script type="text/javascript">
+   var data1 = data1
+    // Generate some data
+    function randomDataset() {
+      var _randomNum = function() {
+        return Math.floor(Math.random() * 18);
+      };
+     var newData = data1[Math.floor(Math.random() * 18)]
+      console.log(newData)
+
+      var year = `Year: ${newData["year"]}`
+      console.log(year)
+      d3.select('#year').text(year)
+
+      return newData;
+    }
+
+    var chart = d3.ez.chart.polarAreaChart().colors(d3.ez.palette.diverging(2));
+    var legend = d3.ez.component.legend().title('Top 10');
+    var title = d3.ez.component.title().mainText("NCHS - Leading Causes of Death: United States").subText("Years: 1999-2017");
+
+    // Create chart base
+    var myChart = d3.ez.base()
+      .width(1000)
+      .height(650)
+      .chart(chart)
+      .legend(legend)
+      .title(title)
+      .on("customValueMouseOver", function(d, i) {
+        d3.select("#message").text(d.value);
+      });
+
+    // Add to page
+    function update() {
+      var data = randomDataset();
+      d3.select("#chartholder")
+        .datum(data)
+        .call(myChart);
+    }
+
+    update();
+    setInterval(update, 4000);
+</script>
+<h2 class = "text-white">Coxcomb Diagram:</h2>
+<p class = "text-danger">The coxcomb diagram or sometimes referred to as polar area charts or roses is best used when trying to visualize patterns rather than delivering exact numbers. 
+  We can observe that over the period from 1999 - 2017 that the leading cause of death among Americans is Heart Disease and Cancer.  Understanding this trend allows public and private institutions to shape policy or implement business strategies that will better serve their customers and constituents.  Specifically, doctors could recommend to patients
+  dietary changes and setting up regular screenings for cancer.
+</p>
+      <footer class="text-center text-light border-top border-danger">
+        <div class="footer">&copy; Copyright Causa Mortis 2020</div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+    integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+<!-- Leaflet-Choropleth JavaScript -->
+<script type="text/javascript" src="../static/js/choropleth.js"></script>
+<!-- Our CSS -->
+<link rel="stylesheet" type="text/css" href="../static/css/style.css">
+<script type="text/javascript" src="../static/js/config.js"></script>
+<script type="text/javascript" src="../static/js/logic.js"></script>
+<script type="text/javascript" src="../static/js/bubble.js"></script>
+<script type="text/javascript" src="../static/js/sankey.js"></script>
+</body>
+
+</html>
