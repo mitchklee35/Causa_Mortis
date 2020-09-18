@@ -111,7 +111,7 @@ def about():
     return render_template("about.html")
 
 
-@app.route("/")
+@app.route("/", methods=("POST", "GET"))
 def welcome():
     # return(
     #     f"Abandon hope, all ye who enter this API<br/>"
@@ -123,7 +123,7 @@ def welcome():
     #     f"Choropleth: /choropleth<br/>"
     #     f"Coxcomb: /coxcomb<br/>"
 
-    return render_template("home.html")
+    return render_template("home.html", tables=[CODfilt.to_html(classes='data')], titles=CODfilt.columns.values)
 
 
 if __name__ == "__main__":

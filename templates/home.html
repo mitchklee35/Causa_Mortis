@@ -1,6 +1,7 @@
 <!-- Home page HTML -->
 <!DOCTYPE html>
 <html lang="en-us">
+<meta charset="UTF-8">
 
 <head>
     <meta charset="UTF-8">
@@ -39,9 +40,9 @@
                             Causes of Death in the US</a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="coxcomb">Coxcomp Diagram</a>
-                            <a class="dropdown-item" href="sankey">Sankey Diagrams</a>
-                            <a class="dropdown-item" href="bubble">Bubble Diagrams</a>
-                            <a class="dropdown-item" href="choropleth">Choropleth</a>
+                            <a class="dropdown-item" href="sankey">Sankey Diagram</a>
+                            <a class="dropdown-item" href="bubble">Bubble Diagram</a>
+                            <a class="dropdown-item" href="choropleth">Choropleth Diagram</a>
                             <a class="dropdown-item" href="about">About the Team</a>
                         </div>
                     </li>
@@ -53,17 +54,23 @@
     <div class="chart">
         <div id="home"></div>
     </div>
-    <h2 class = "text-white">Analysis of the Cause of Death throughout the US</h2>
-        <p class="text-danger">ect
-            ect
-            ect
-            ect
-        </p>
-    <h3 class = "text-white">Data</h3>
-        <p class="text-danger"> Data shown in CSV format table
-        </p>
+    <h2 class="text-white">Analysis of the Cause of Death throughout the US</h2>
+    <p class="text-danger">The following is data pulled from Healthdata.gov. This was downloaded in JSON format and cleaned. 
+        After handling the data, it was then put into SQLite and formatted back into json to then be used in various analysis charts.
 
-    
+    </p>
+    <h3 class="text-white">Data</h3>
+
+
+    <body>
+
+        {% for table in tables %}
+        {{titles[loop.index]}}
+        {{ table|safe }}
+        {% endfor %}
+    </body>
+
+
     <footer class="text-center text-light border-top border-danger">
         <div class="footer">&copy; Copyright Causa Mortis 2020</div>
     </footer>
