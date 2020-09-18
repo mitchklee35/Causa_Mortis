@@ -9,7 +9,7 @@ var sankey_chart = anychart.sankey(data);
 sankey_chart.nodeWidth("20%");
 
 //setting the chart title
-sankey_chart.title("United States Death from 1970 to 2019");
+sankey_chart.title("United States Death from 1999 to 2017");
 
 //customizing the vertical padding of the nodes
 sankey_chart.nodePadding(20);
