@@ -10,13 +10,9 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
 }).addTo(map);
 
 
-// // import my geojason data 
+// // import my geojason data  using async function 
 (async function () {
-    // const data = await d3.json("../data/data.geojson");
-    // // Once we get a response, send the data.features object to the createFeatures function
-    // L.geoJson(data).addTo(map);
-
-
+   //the address is given based on the app.py location  
     d3.json("/static/data/data.geojson")
         .then(function (data) {
             L.geoJson(data).addTo(map);
