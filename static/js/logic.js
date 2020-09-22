@@ -128,7 +128,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
             legend.onAdd = function (map) {
 
                 var div = L.DomUtil.create('div', 'info legend1'),
-                    grades = [8000000, 7000000, 6000000, 5000000, 4000000, 3000000, 2000000, 1000000],
+                    grades = ["8M", "7M", "6M", "5M", "4M", "3M", "2M", "1M"],
 
 
                     labels = [];
