@@ -21,6 +21,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.2/d3.js"></script>
     <!-- Our Stylesheet-->
     <link rel="stylesheet" type="text/css" href="static/css/style.css">
+
+    <!-- <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style> -->
 </head>
 
 <body>
@@ -55,19 +73,27 @@
         <div id="home"></div>
     </div>
     <h2 class="text-white">Analysis of the Cause of Death throughout the US</h2>
-    <p class="text-danger">The following is data pulled from Healthdata.gov. This was downloaded in JSON format and cleaned. 
-        After handling the data, it was then put into SQLite and formatted back into json to then be used in various analysis charts.
+    <p class="text-E9E9E9">The following is data pulled from Healthdata.gov. This was downloaded in JSON format and
+        cleaned for the specific columns and data points needed in the following graphs and visuals.<br />
+        After cleaning the data, it was then put into SQLite and formatted back into json to then be used in various
+        analysis charts. Under each visualization you will find an analysis of the data where we were able to pull insights. <br />
+        <br />
+        Check out our "About the Team" page for credit and contact information. Enjoy!
 
     </p>
     <h3 class="text-white">Data</h3>
 
 
     <body>
-
-        {% for table in tables %}
-        {{titles[loop.index]}}
-        {{ table|safe }}
-        {% endfor %}
+        <main>
+            <divclass="table-wrapper" tabindex="0">
+                {% for table in tables %}
+                {{titles[loop.index]}}
+                {{ table|safe }}
+                {% endfor %}
+                </div>
+                <p>Data from <a href="https://www.eatthismuch.com/">eat this much</a> food browser</p>
+        </main>
     </body>
 
 
